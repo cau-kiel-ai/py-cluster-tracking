@@ -6,7 +6,9 @@ An implementation of three variations is given in `cluster_tracker.py`.
 ## Evaluation
 
 We evaluated the different implementations and measured both accuracy and execution times of each approach.
-The code used for the evaluation is stored in `delta.py`
+The code used for the evaluation is stored in `delta.py`.
+
+The data used for the evaluation (`multi_days_{lat,lon}.nc3` and `single_day_{lat,lon}.nc3` by Rene Schubert) are licensed under [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/).
 
 ## Visualization
 
