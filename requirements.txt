@@ -1,0 +1,6 @@
+xarray
+tqdm
+scikit-learn
+numpy
+pandas
+matplotlib

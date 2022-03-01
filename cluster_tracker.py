@@ -25,8 +25,8 @@ class GridTracker:
         self.steps = []
         self.bins = bins
         for idx, r in enumerate(self.value_range):
-            min, max = r
-            _, step = np.linspace(min, max, bins[idx], retstep=True)
+            range_min, range_max = r
+            _, step = np.linspace(range_min, range_max, bins[idx], retstep=True)
             self.steps.append(step)
         self.previous = None
 
@@ -45,17 +45,16 @@ class GridTracker:
             if label == -1:
                 continue
             label_set = temp.get(label, set())
-            bin = tuple()
+            bins = tuple()
             for jdx, coord in enumerate(value):
                 dim_min = self.value_range[jdx][0]
                 dim_max = self.value_range[jdx][1]
                 step = self.steps[jdx]
                 if coord != dim_max:
-                    bin = (*bin, int((coord - dim_min) / step))
+                    bins = (*bins, int((coord - dim_min) / step))
                 else:
-                    # print('test')
-                    bin = (*bin, self.bins[jdx] - 2)
-            label_set.add(bin)
+                    bins = (*bins, self.bins[jdx] - 2)
+            label_set.add(bins)
             temp[label] = label_set
 
         if self.previous is not None:
